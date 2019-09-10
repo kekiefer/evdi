@@ -227,7 +227,7 @@ static int evdi_platform_remove(struct platform_device *pdev)
 
 static void evdi_remove_all(void)
 {
-	int i;
+	unsigned i;
 
 	EVDI_DEBUG("removing all evdi devices\n");
 	for (i = 0; i < evdi_context.dev_count; ++i) {
@@ -332,7 +332,8 @@ static struct device_attribute evdi_device_attributes[] = {
 
 static int __init evdi_init(void)
 {
-	int i, ret;
+	unsigned i;
+	int ret;
 
 	EVDI_INFO("Initialising logging on level %u\n", evdi_loglevel);
 	EVDI_INFO("Atomic driver:%s",
@@ -357,7 +358,7 @@ static int __init evdi_init(void)
 
 static void __exit evdi_exit(void)
 {
-	int i;
+	unsigned i;
 
 	EVDI_CHECKPT();
 	evdi_remove_all();
